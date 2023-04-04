@@ -22,7 +22,7 @@ def delete_pages():
 def f1():
     delete_pages()
     f1_frame = tk.Frame(main_frame)
-    alllt = network.nodes()
+    alllt = sorted(network.nodes())
     count = 0
     alllt1,alllt2,alllt3,alllt4,alllt5="","","","",""
     for i in alllt:
@@ -83,20 +83,24 @@ def f3():
                 if len(i) == max(res1):resmax.append(i)
             lb7 = tk.Label(f3_frame,text='\n-Min path',font=font3)
             lb7.pack()
+            count = 0
             allmn1,allmn2 = '',''
             for i in resmin:
                 if count%2 == 0:allmn1+='    '+str(i)
                 elif count%2 == 1:allmn2+='    '+str(i)
+                count += 1
             lb8 = tk.Label(f3_frame,text=allmn1,font=font3)
             lb8.pack()
             lb9 = tk.Label(f3_frame,text=allmn2,font=font3)
             lb9.pack()
             lb10 = tk.Label(f3_frame,text='\n-Max path',font=font3)
             lb10.pack()
+            count = 0
             allmx1,allmx2 = '',''
             for i in resmax:
                 if count%2 == 0:allmx1+='    '+str(i)
                 elif count%2 == 1:allmx2+='    '+str(i)
+                count += 1
             lb11 = tk.Label(f3_frame,text=allmx1,font=font3)
             lb11.pack()
             lb12 = tk.Label(f3_frame,text=allmx2,font=font3)
